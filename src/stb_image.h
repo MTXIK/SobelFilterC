@@ -149,7 +149,7 @@ RECENT REVISION HISTORY:
 //    int *x                 -- outputs image width in pixels
 //    int *y                 -- outputs image height in pixels
 //    int *channels_in_file  -- outputs # of image components in image file
-//    int desired_channels   -- if non-zero, # of image components requested in result
+//    int desired_channels   -- if non-zero, # of image components requested in results
 //
 // The return value from an image loader is an 'unsigned char *' which points
 // to the pixel data, or NULL on an allocation failure or if the image is
@@ -192,7 +192,7 @@ RECENT REVISION HISTORY:
 //
 // Note that stb_image pervasively uses ints in its public API for sizes,
 // including sizes of memory buffers. This is now part of the API and thus
-// hard to change without causing breakage. As a result, the various image
+// hard to change without causing breakage. As a results, the various image
 // loaders all have certain limits on image size; these differ somewhat
 // by format but generally boil down to either just under 2GB or just under
 // 1GB. When the decoded image would be larger than this, stb_image decoding
@@ -711,7 +711,7 @@ typedef unsigned char validate_uint32[sizeof(stbi__uint32)==4 ? 1 : -1];
 //
 // 32-bit MinGW wants ESP to be 16-byte aligned, but this is not in the
 // Windows ABI and VC++ as well as Windows DLLs don't maintain that invariant.
-// As a result, enabling SSE2 on 32-bit MinGW is dangerous when not
+// As a results, enabling SSE2 on 32-bit MinGW is dangerous when not
 // simultaneously enabling "-mstackrealign".
 //
 // See https://github.com/nothings/stb/issues/81 for more information.
@@ -2064,7 +2064,7 @@ static void stbi__build_fast_ac(stbi__int16 *fast_ac, stbi__huffman *h)
             int k = ((i << len) & ((1 << FAST_BITS) - 1)) >> (FAST_BITS - magbits);
             int m = 1 << (magbits - 1);
             if (k < m) k += (~0U << magbits) + 1;
-            // if the result is small enough, we can fit it in fast_ac table
+            // if the results is small enough, we can fit it in fast_ac table
             if (k >= -128 && k <= 127)
                fast_ac[i] = (stbi__int16) ((k * 256) + (run * 16) + (len + magbits));
          }
