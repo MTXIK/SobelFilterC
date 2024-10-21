@@ -50,7 +50,7 @@
 ```bash
 ./sobel_filter <input_image> <output_image> <num_threads>
 ```
-### Примеры запуска
+## Примеры запуска
 Исходник:
 ![Alt text](examples/test2.jpg)
 
