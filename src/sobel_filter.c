@@ -6,13 +6,14 @@
 
 // Включаем заголовочные файлы для работы с изображениями
 // Используем библиотеку stb_image для загрузки изображений
+//https://github.com/nothings/stb/tree/master
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
 #define STB_IMAGE_WRITE_IMPLEMENTATION
 #include "stb_image_write.h"
 
-// Максимальное количество потоков
-#define MAX_THREADS 32
+// Максимальное количество потоков (оптимально ввести максимальное количество потоков в вашем процессоре)
+#define MAX_THREADS 8
 
 // Структура для передачи данных в потоки
 typedef struct {
@@ -86,6 +87,7 @@ int main(int argc, char *argv[]) {
     }
 
     int num_threads = atoi(argv[3]); // Количество потоков, переданное как аргумент
+
     // Проверяем, что количество потоков допустимо
     if (num_threads <= 0 || num_threads > MAX_THREADS) {
         printf("Number of threads must be between 1 and %d\n", MAX_THREADS);
@@ -93,6 +95,7 @@ int main(int argc, char *argv[]) {
     }
 
     int width, height, channels; // Переменные для хранения размеров изображения и количества каналов
+
     // Загружаем изображение в градациях серого
     unsigned char *input_image = stbi_load(argv[1], &width, &height, &channels, 1);
     if (input_image == NULL) {
